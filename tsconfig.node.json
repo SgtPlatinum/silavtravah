@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["esnext"],
+    "resolveJsonModule": true,
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "useDefineForClassFields": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "tsup.config.ts",
+    "server/**/*.ts"
+  ]
+}
