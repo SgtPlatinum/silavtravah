@@ -2,7 +2,8 @@ import {Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGe
 import {User} from "./user";
 
 export enum TokenPurpose {
-  EMAIL_VERIFICATION = "email-verification"
+  EMAIL_VERIFICATION = "email-verification",
+  PASSWORD_RESET = "password-reset",
 }
 
 @Entity("token")

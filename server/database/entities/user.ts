@@ -1,3 +1,4 @@
+import { Password } from "@propero/security";
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import type {PasswordMeta} from "../../security/password";
 import {passwordMeta} from "../transformer";
@@ -22,9 +23,13 @@ export class User {
   @Column("varchar", { unique: true })
   email: string;
 
-  @Column("varchar", { transformer: passwordMeta() })
-  @Reflect.metadata("design:type", Object)
-  hash: PasswordMeta; // password hash and salt
+  @Column("varchar", {
+    transformer: {
+      from: (it) => Password.parse(it),
+      to: it => it instanceof Password ? it.toString() : Password.parse(it).toString(),
+    },
+  })
+  hash: Password; // password hash and salt
 
   @Column("varchar", { nullable: true })
   avatar?: string;

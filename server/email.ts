@@ -5,7 +5,6 @@ export const emailUser = {
   email: env("main_username"),
   name: "No Reply"
 };
-
 export function createEmailTransport() {
   return nodemailer.createTransport({
     secure: false,
@@ -21,3 +20,5 @@ export function createEmailTransport() {
     },
   });
 }
+
+export const email = createEmailTransport();

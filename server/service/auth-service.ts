@@ -1,9 +1,12 @@
-import {Body, Get, Post, Query, ResponseStatus, Service, Session} from "@propero/easy-api";
-import {db, Role, Token, TokenPurpose, User} from "../database";
-import {hashAndSalt, verify} from "../security/password";
+import { Body, Get, Post, Query, ResponseStatus, Service, Session } from "@propero/easy-api";
+import { Password } from "@propero/security";
 import z from "zod";
-import {UserRegistrationSchema} from "../schemas/user-schemas";
-import {relativeDate} from "../util/timing";
+import { db, Role, Token, TokenPurpose, User } from "../database";
+import { sendPasswordResetEmail } from "../emails/reset-password";
+import { sendVerificationEmail } from "../emails/verification";
+import { UserRegistrationSchema } from "../schemas/user-schemas";
+import { env } from "../util";
+import { relativeDate } from "../util/timing";
 
 @Service("/auth")
 export class AuthService {
@@ -16,12 +19,14 @@ export class AuthService {
     @Body("username") username: string,
     @Session() session: any,
   ) {
+    console.log("login", username, password);
     const user = await this.users.findOne({
       where: [{username}, {email: username}]
     });
     if (!user) return {status: ResponseStatus.NOT_FOUND, data: {success: false}};
-    const matches = await verify(password, user.hash);
-    if (!matches) return {status: ResponseStatus.UNAUTHORIZED, data: {success: false}};
+    if (!await user.hash.verifyAndUpgrade(password))
+      return {status: ResponseStatus.UNAUTHORIZED, data: {success: false}};
+    await this.users.save(user);
     session.user = user;
     return {status: 200, data: {success: true}};
   }
@@ -37,7 +42,7 @@ export class AuthService {
       username: data.username,
       email: data.email,
       bio: data.bio,
-      hash: await hashAndSalt(data.password),
+      hash: await Password.hash(data.password),
       role: Role.GUEST,
     });
 
@@ -97,15 +102,33 @@ export class AuthService {
 
     const token = this.tokens.create({
       purpose: TokenPurpose.EMAIL_VERIFICATION,
-      expires: relativeDate("5days"),
+      expires: relativeDate("5 days"),
       user,
     });
     await this.tokens.save(token);
-
-    console.log(token.uuid);
-    // TODO: generate token and send email
+    await sendVerificationEmail(token).catch(console.error);
 
     return { status: 200, data: { success: true } };
   }
+
+  @Get("/send-password-reset")
+  async sendPasswordReset(@Body("username") username: string) {
+    const user = await this.users.findOne({
+      where: [{username}, {email: username}]
+    });
+    if (!user) return {status: ResponseStatus.NOT_FOUND, data: {success: false}};
+
+    const token = this.tokens.create({
+      purpose: TokenPurpose.PASSWORD_RESET,
+      expires: relativeDate("1 day"),
+      user,
+    });
+    await this.tokens.save(token);
+    await sendPasswordResetEmail(token);
+
+    return { status: 200, data: { success: true } };
+  }
+
+
 
 }

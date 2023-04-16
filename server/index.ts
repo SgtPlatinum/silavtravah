@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import {Express, Router} from "express";
+import { Express, Router } from "express";
 import {env, isDev} from "./util";
 import {db, Session} from "./database";
 import express from "express";
@@ -9,7 +9,7 @@ import cookieParser from "cookie-parser";
 import {createExpressErrorHandler, createService} from "@propero/easy-api";
 import * as services from "./service";
 
-export default async function main(app = express()): Promise<Express> {
+export default async function main(app: Express = express()): Promise<Express> {
   if (isDev()) console.log("development mode enabled");
 
   await db.initialize();
@@ -33,14 +33,13 @@ export default async function main(app = express()): Promise<Express> {
     }),
   );
 
-  app.use(createExpressErrorHandler(isDev));
-
   const router = Router();
 
   for (const Service of Object.values(services))
     router.use(createService(new Service()));
 
   app.use("/api", router);
+  app.use(createExpressErrorHandler(isDev));
 
   app.listen(env("node_port", 3000), () => {
     if (isDev()) console.log(`http://localhost:${env("node_port", 3000)}/`);

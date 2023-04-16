@@ -15,6 +15,7 @@ export class AdminUser1681567092032 implements MigrationInterface {
       hash: await hashAndSalt("admin"),
     });
     await repo.save(admin);
+    console.log(`admin user created. ${admin.username}:admin`);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {

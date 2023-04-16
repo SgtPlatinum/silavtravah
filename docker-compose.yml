@@ -1,0 +1,12 @@
+version: '3'
+services:
+  silavtravah_db:
+    image: 'postgres:latest'
+    container_name: silavtravah_postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/:/var/lib/postgresql/data/
+    env_file:
+      - ".env.local"
