@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import {Express} from "express";
+import {Express, Router} from "express";
 import {env, isDev} from "./util";
 import {db, Session} from "./database";
 import express from "express";
@@ -35,8 +35,12 @@ export default async function main(app = express()): Promise<Express> {
 
   app.use(createExpressErrorHandler(isDev));
 
+  const router = Router();
+
   for (const Service of Object.values(services))
-    app.use(createService(new Service()));
+    router.use(createService(new Service()));
+
+  app.use("/api", router);
 
   app.listen(env("node_port", 3000), () => {
     if (isDev()) console.log(`http://localhost:${env("node_port", 3000)}/`);

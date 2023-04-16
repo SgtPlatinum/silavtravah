@@ -1,9 +1,18 @@
-<script>
+<script lang="ts">
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import Breadcrumbs from "$lib/component/Breadcrumbs.svelte";
 	import Button, { Label } from "@smui/button";
+	import ProductGrid from "$lib/component/ProductGrid.svelte";
+	import axios from "axios";
+
+	const client = axios.create({ baseURL: "/api" });
+
+	if (typeof window !== "undefined") Object.assign(window, { client });
+
+	export let data: any;
+
 </script>
 
 <svelte:head>
@@ -20,6 +29,8 @@
 
 <section>
 	<Breadcrumbs title="Home" links={[{ name: "Home" }]} />
+
+	<ProductGrid products={data.products} count={12} />
 
 	<Button>
 		<Label>A Button</Label>
