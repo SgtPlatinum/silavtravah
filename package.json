@@ -7,9 +7,9 @@
 		"server:dev": "tsup --watch",
 		"server:start": "node dist/index.cjs",
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "vite build && pnpm run server:build",
 		"preview": "vite preview",
-		"start": "vite start --host",
+		"start": "node build/index",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
@@ -48,6 +48,7 @@
 		"vite": "^4.2.1"
 	},
 	"dependencies": {
+		"@mankins/svelte-adapter-express": "^0.1.2",
 		"@material/theme": "^14.0.0",
 		"@propero/easy-api": "^2.1.0",
 		"@smui/button": "7.0.0-beta.3",
@@ -70,6 +71,7 @@
 		"@smui/switch": "7.0.0-beta.3",
 		"@smui/tab": "7.0.0-beta.3",
 		"@smui/textfield": "7.0.0-beta.3",
+		"compression": "^1.7.4",
 		"connect-typeorm": "^2.0.0",
 		"cookie-parser": "^1.4.6",
 		"dotenv": "^16.0.3",

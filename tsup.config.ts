@@ -6,7 +6,7 @@ export default defineConfig(({watch}) => ({
   onSuccess: watch ? "pnpm run server:start" : undefined,
   clean: !watch,
   minify: !watch,
-  dts: !watch,
+  dts: false,
   format: ["cjs", "esm"],
   target: "node16",
   outDir: "dist",

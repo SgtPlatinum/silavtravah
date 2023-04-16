@@ -9,14 +9,12 @@ import cookieParser from "cookie-parser";
 import {createExpressErrorHandler, createService} from "@propero/easy-api";
 import * as services from "./service";
 
-export async function main(): Promise<Express> {
+export default async function main(app = express()): Promise<Express> {
   if (isDev()) console.log("development mode enabled");
 
   await db.initialize();
   await db.synchronize();
   await db.runMigrations();
-
-  const app = express();
 
   app.use(
     cookieParser(),
@@ -47,5 +45,4 @@ export async function main(): Promise<Express> {
   return app;
 }
 
-
-main().catch(console.error);
+if (isDev()) main().catch(console.error);
