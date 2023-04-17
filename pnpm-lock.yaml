@@ -14,8 +14,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0
   '@propero/security':
-    specifier: ^1.0.0
-    version: 1.0.0
+    specifier: ^1.0.1
+    version: 1.0.1
   '@smui/button':
     specifier: 7.0.0-beta.3
     version: 7.0.0-beta.3(svelte@3.58.0)(typescript@5.0.4)
@@ -97,6 +97,9 @@ dependencies:
   express-session:
     specifier: ^1.17.3
     version: 1.17.3
+  leaflet:
+    specifier: ^1.9.3
+    version: 1.9.3
   nodemailer:
     specifier: ^6.9.1
     version: 6.9.1
@@ -935,8 +938,8 @@ packages:
       - supports-color
     dev: false
 
-  /@propero/security@1.0.0:
-    resolution: {integrity: sha512-EOH+VnJ4Xsho82QwLg1lbodnthgLddoJSsY1F+z3n+VpEfVWqiOWj5FKgtiLCRl2sXKe28vkYjf2Q89nquk9QA==}
+  /@propero/security@1.0.1:
+    resolution: {integrity: sha512-3hhaWQYv2fYRqBgMazxJYI8435HE0VxG+ml9NcEfS1qJHfUSUZA7ilriOKjCx1gTfNoXvJ0iqhJWearGCiu49Q==}
     dev: false
 
   /@smui/button@7.0.0-beta.3(svelte@3.58.0)(typescript@5.0.4):
@@ -2770,6 +2773,10 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
     dev: true
+
+  /leaflet@1.9.3:
+    resolution: {integrity: sha512-iB2cR9vAkDOu5l3HAay2obcUHZ7xwUBBjph8+PGtmW/2lYhbLizWtG7nTeYht36WfOslixQF9D/uSIzhZgGMfQ==}
+    dev: false
 
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}

@@ -12,7 +12,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Subash</title>
+	<title>Сила в травах</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
