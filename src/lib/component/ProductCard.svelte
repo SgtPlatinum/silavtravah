@@ -1,19 +1,19 @@
 <script lang="ts">
 import Button, { Label } from "@smui/button";
-export let title = "Product";
-export let price = 1000;
-export let image = "https://picsum.photos/256/256"
-export let id = "unknown";
+import { getCartContext } from "../cart";
+
+export let product = { title: "Product", price: 1000, image: "https://picsum.photos/256/256", id: NaN };
+const { add } = getCartContext();
 
 </script>
 
 
 <article>
-  <h3><a href="/product/{id}">{title}</a></h3>
-  <a href="/product/{id}"><img src={image} alt="{title}" /></a>
+  <h3><a href="/product/{product.id}">{product.title}</a></h3>
+  <a href="/product/{product.id}"><img src={product.image} alt="{product.title}" /></a>
   <div>
-    <span>{price.toLocaleString("ru", {useGrouping: true})} ₽</span>
-    <Button><Label>В корзину</Label></Button>
+    <span>{product.price.toLocaleString("ru", {useGrouping: true})} ₽</span>
+    <Button on:click={() => add(product)}><Label>В корзину</Label></Button>
   </div>
 </article>
 

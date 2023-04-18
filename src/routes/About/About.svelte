@@ -182,7 +182,7 @@
         <li><img src="phone logo here">+7 (900) 250-14-87</li>
         <li><img src="vk logo here"><a href="https://vk.com/mgokigb">@Alenkytsvetochek</a></li>
         <li><img src="Odnoklassniki logo goes here"><a href="https://ok.ru/mjvkfsdapgn">@alenkytsvetochek</a></li>
-        <li><img src="telegram logo here"><a href="https://t.me/fdihgnihg">@Alenky_Tsvetochek</a></li>
+        <li><img src="telegram logo here"><a href="https://t.me/fdihgnihg">@AlenkyTsvetochek</a></li>
     </ul>
 </div>
 <svelte:window on:resize={resizeMap} />

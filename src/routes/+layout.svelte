@@ -1,6 +1,16 @@
-<script>
+<script lang="ts">
+	import { client } from "../lib/client";
+	import { initUserContext } from "../lib/user";
 	import Header from './Header.svelte';
 	import './styles.css';
+	import {initCartContext} from "../lib/cart.js";
+
+	export let data: any;
+	console.log(data);
+	const user = initUserContext(data.user);
+	const cart = initCartContext(data.cart, () => user.loggedIn.get());
+
+	if (typeof window !== "undefined") Object.assign(window, { user, cart, client });
 </script>
 
 <div class="app">

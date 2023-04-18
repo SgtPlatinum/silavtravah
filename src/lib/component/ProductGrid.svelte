@@ -8,7 +8,7 @@ export let count = 12;
 
 <section>
   {#each products.slice(0, count) as product (product.id)}
-    <ProductCard title={product.title} image={product.image} price={product.price} id={product.id} />
+    <ProductCard {product} />
   {/each}
 </section>
 
