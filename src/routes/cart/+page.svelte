@@ -20,7 +20,15 @@ const { products, total, add, remove } = getCartContext();
   </article>
 </div>
 
-<!-- ok so there's info about the buying process, i could type it later ye do that -->
+<!-- TODO: paying requirements
+     1. if the total of the cart is < 500P, make an alert that the minimum is 500P
+     2. if the total of the cart is < 3000P, make text above Purchase button
+        that says "there must be prepayment of 300P according to Pochta Rossii's guidelines."
+     3. there must be an automatic mail sent to the buyer their cart is <3000P,
+        the mail is a cheque for the prepayment
+     4. delivery address (Country, Region, City, ZIP, street, house/apartment+flat)
+        no checks or anything required, just additional info
+        maybe don't keep that info anywhere and just make these inputs irrelevant-->
 
 <style lang="postcss">
 div {
