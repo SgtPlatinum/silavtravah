@@ -12,8 +12,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Сила в травах</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Магазин "Аленький Цветочек"</title>
+	<meta name="description" content="Магазин Аленький Цветочек" />
 </svelte:head>
 
 <section>

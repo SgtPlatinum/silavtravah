@@ -128,7 +128,4 @@ export class AuthService {
 
     return { status: 200, data: { success: true } };
   }
-
-
-
 }
