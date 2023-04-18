@@ -23,6 +23,9 @@ export class User {
   @Column("varchar", { unique: true })
   email: string;
 
+  @Column("jsonb", { default: "{}" })
+  cart: Record<number, number>;
+
   @Column("varchar", {
     transformer: {
       from: (it) => Password.parse(it),

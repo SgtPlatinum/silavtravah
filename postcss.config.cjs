@@ -1,6 +1,6 @@
 const tailwindcss = require("tailwindcss");
 const autoprefixer = require("autoprefixer");
-const nested = require("postcss-nested");
+const nested = require("tailwindcss/nesting");
 const imports = require("postcss-import");
 
 const mode = process.env.NODE_ENV;
@@ -8,7 +8,7 @@ const dev = mode === "development";
 
 module.exports = {
   plugins: [
-    nested,
+    nested(),
     imports(),
 
     // Some plugins, like postcss-nested, need to run before Tailwind

@@ -5,7 +5,6 @@ import { db, Role, Token, TokenPurpose, User } from "../database";
 import { sendPasswordResetEmail } from "../emails/reset-password";
 import { sendVerificationEmail } from "../emails/verification";
 import { UserRegistrationSchema } from "../schemas/user-schemas";
-import { env } from "../util";
 import { relativeDate } from "../util/timing";
 
 @Service("/auth")
@@ -51,7 +50,7 @@ export class AuthService {
     return { status: 200, data: { success: true } };
   }
 
-  @Get("/logout")
+  @Post("/logout")
   async logout(@Session() session: any) {
     delete session.user;
     return {status: 200, data: {success: true}};
@@ -60,11 +59,11 @@ export class AuthService {
   @Get("/me")
   async me(@Session("user") user?: User) {
     if (!user) return { status: 200, data: { guest: true } };
-    const {username, email, bio, avatar, role} = user;
+    const {username, email, bio, avatar, role} = await this.users.findOneBy({ uuid: user.uuid });
     return {status: 200, data: {guest: role === Role.GUEST, username, email, bio, avatar, role}};
   }
 
-  @Get("/verify")
+  @Post("/verify")
   async verifyEmail(
     @Query("uuid") uuid: string,
     @Query("token") token: string,
@@ -93,7 +92,7 @@ export class AuthService {
     return { status: 200, data: { success: true } };
   }
 
-  @Get("/send-email-verification")
+  @Post("/send-email-verification")
   async sendVerification(@Session("user") user?: User) {
     if (!user) return {
       status: 401,
@@ -111,7 +110,7 @@ export class AuthService {
     return { status: 200, data: { success: true } };
   }
 
-  @Get("/send-password-reset")
+  @Post("/send-password-reset")
   async sendPasswordReset(@Body("username") username: string) {
     const user = await this.users.findOne({
       where: [{username}, {email: username}]

@@ -13,6 +13,9 @@ dependencies:
   '@propero/easy-api':
     specifier: ^2.1.0
     version: 2.1.0
+  '@propero/easy-store':
+    specifier: ^2.0.0
+    version: 2.0.0
   '@propero/security':
     specifier: ^1.0.1
     version: 1.0.1
@@ -936,6 +939,10 @@ packages:
       express: 4.18.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@propero/easy-store@2.0.0:
+    resolution: {integrity: sha512-QDHwHYV6525aaa5meHYsbLsXC8uon/QEOt6r/ROGkwEe7o9bx9BFtixgTiVzkchSANpbwsd+A/qPlSVe5fGbQA==}
     dev: false
 
   /@propero/security@1.0.1:
