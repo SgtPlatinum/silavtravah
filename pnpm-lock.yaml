@@ -13,9 +13,6 @@ dependencies:
   '@propero/easy-api':
     specifier: ^2.1.0
     version: 2.1.0
-  '@propero/easy-store':
-    specifier: ^2.0.0
-    version: 2.0.0
   '@propero/security':
     specifier: ^1.0.1
     version: 1.0.1
@@ -129,6 +126,9 @@ devDependencies:
   '@neoconfetti/svelte':
     specifier: ^1.0.0
     version: 1.0.0
+  '@propero/easy-store':
+    specifier: ^2.0.0
+    version: 2.0.0
   '@sveltejs/adapter-auto':
     specifier: ^2.0.0
     version: 2.0.0(@sveltejs/kit@1.15.5)
@@ -943,7 +943,7 @@ packages:
 
   /@propero/easy-store@2.0.0:
     resolution: {integrity: sha512-QDHwHYV6525aaa5meHYsbLsXC8uon/QEOt6r/ROGkwEe7o9bx9BFtixgTiVzkchSANpbwsd+A/qPlSVe5fGbQA==}
-    dev: false
+    dev: true
 
   /@propero/security@1.0.1:
     resolution: {integrity: sha512-3hhaWQYv2fYRqBgMazxJYI8435HE0VxG+ml9NcEfS1qJHfUSUZA7ilriOKjCx1gTfNoXvJ0iqhJWearGCiu49Q==}

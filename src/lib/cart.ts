@@ -20,8 +20,11 @@ export function createCartStore(initialProducts: ProductWithAmount[] = [], withU
   const total    = deriveStore([products], products =>
     products.reduce((total, { price, amount }) => total + price * amount, 0)
   );
+  const count = deriveStore([products], products =>
+    products.reduce((sum, { amount }) => sum + amount, 0)
+  );
 
-  if (!initialProducts.length && !import.meta.env.SSR) load().then().catch();
+  if (!initialProducts?.length && !import.meta.env.SSR) load().then().catch();
   const find = (product: Product) =>
     store.get().products.find(it => it.id === product.id);
 
@@ -71,6 +74,7 @@ export function createCartStore(initialProducts: ProductWithAmount[] = [], withU
     store,
     products,
     total,
+    count,
     find,
     replace,
     add,

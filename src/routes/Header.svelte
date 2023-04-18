@@ -1,6 +1,7 @@
-<script>
+<script lang="ts">
+	import Button, {Label} from "@smui/button";
 
-import Button from "@smui/button";
+	export let count = 0;
 </script>
 
 <header>
@@ -10,7 +11,7 @@ import Button from "@smui/button";
 	</section>
 	<form>
 		<input type="text" name="text" class="search" placeholder="Поиск товара...">
-		<Button class="bg-3">Поиск</Button>
+		<Button class="bg-3"><Label>Поиск</Label></Button>
 	</form>
 
 	<!-- TODO: contact data (in about page, use up to 3) -->
@@ -27,6 +28,8 @@ import Button from "@smui/button";
 		 block of the amount of people currently on the website at the moment-->
 
 	<!-- TODO: cart button goes here -->
+	<a href="/cart"><Button>Корзина ({count})</Button></a>
+
 </header>
 
 

@@ -6,15 +6,15 @@
 	import {initCartContext} from "../lib/cart.js";
 
 	export let data: any;
-	console.log(data);
 	const user = initUserContext(data.user);
 	const cart = initCartContext(data.cart, () => user.loggedIn.get());
+	const { count } = cart;
 
 	if (typeof window !== "undefined") Object.assign(window, { user, cart, client });
 </script>
 
 <div class="app">
-	<Header />
+	<Header count={$count} />
 
 	<main>
 		<slot />
