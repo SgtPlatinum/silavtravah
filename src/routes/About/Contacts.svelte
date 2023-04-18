@@ -174,20 +174,19 @@
 
 </script>
 
-
-
 <div>
-    <ul>
-        <li><img src="e-mail logo here">alenkytsvetochek@gmail.com</li>
-        <li><img src="phone logo here">+7 (900) 250-14-87</li>
-        <li><img src="vk logo here"><a href="https://vk.com/mgokigb">@Alenkytsvetochek</a></li>
-        <li><img src="Odnoklassniki logo goes here"><a href="https://ok.ru/mjvkfsdapgn">@alenkytsvetochek</a></li>
-        <li><img src="telegram logo here"><a href="https://t.me/fdihgnihg">@AlenkyTsvetochek</a></li>
-    </ul>
+  <ul>
+    <li><img src="e-mail logo here"><a href="mailto:isluckin@gmail.com">isluckin@gmail.com</a></li>
+    <li><img src="whatsapp logo here">+7 (900) 250-14-87</li>
+    <li><img src="vk logo here"><a href="https://vk.com/mgokigb">@Alenkytsvetochek</a></li>
+    <li><img src="Odnoklassniki logo goes here"><a href="https://ok.ru/mjvkfsdapgn">@alenkytsvetochek</a></li>
+    <li><img src="telegram logo here"><a href="https://t.me/fdihgnihg">@AlenkyTsvetochek</a></li>
+  </ul>
 </div>
+
 <svelte:window on:resize={resizeMap} />
 
-
+<!-- TODO: find a fitting place to make a link to this/edit the map to look good -->
 
 <style lang="postcss">
     .map :global(.marker-text) {

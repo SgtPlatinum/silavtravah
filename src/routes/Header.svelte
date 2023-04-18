@@ -49,11 +49,14 @@
 
 	<!-- TODO: make ul's above similar to https://lechattravy.ru header
 			 and preferably make the design of the header more not shit cus fuck the professor's task sheet-->
+	<a href=
+			 "https://www.google.com/maps/place/45%C2%B002'28.0%22N+39%C2%B001'30.5%22E/@45.041098,39.0225621,17z/data=!3m1!4b1!4m4!3m3!8m2!3d45.041098!4d39.025137"
+	><img src="map icon here"></a>
 
 	<a href="/cart"><Button>Корзина ({count})</Button></a>
 
-</header>
 
+</header>
 
 
 <style lang="postcss">
