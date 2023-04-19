@@ -18,10 +18,10 @@
 
 <section>
 	<Breadcrumbs title="Home" links={[{ name: "Home" }]} />
+	<AboutSection />
 	<CategoryGrid />
 	<ProductGrid products={data.products} count={12} />
 	<PageReviewGrid />
-	<AboutSection />
 </section>
 
 <style>

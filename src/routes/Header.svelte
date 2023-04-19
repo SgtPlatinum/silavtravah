@@ -18,16 +18,16 @@
 	</form>
 	<ul class="socials">
 		<li>
-			<img src="whatsapp icon here">
+			<img src="/static/logos/WhatsApp_logo-color-vertical.svg">
 			<p>+7 (900) 250-14-87</p>
 		</li>
 		<li>
-			<img src="mail icon here">
-			<p><a href="mailto:isluckin@gmail.com">isluckin@gmail.com</a></p>
+			<img src="/static/logos/icons8-envelope-50.png">
+			<p><a target="_blank" href="mailto:isluckin@gmail.com">isluckin@gmail.com</a></p>
 		</li>
 		<li>
-			<img src="telegram icon here">
-			<p><a href="https://t.me/bababoey228">@AlenkyTsvetochek</a></p>
+			<img src="/static/logos/Telegram_2019_simple_logo.svg">
+			<p><a target="_blank" href="https://t.me/bababoey228">@AlenkyTsvetochek</a></p>
 		</li>
 	</ul>
 
@@ -49,7 +49,7 @@
 
 	<!-- TODO: make ul's above similar to https://lechattravy.ru header
 			 and preferably make the design of the header more not shit cus fuck the professor's task sheet-->
-	<a href=
+	<a target="_blank" href=
 			 "https://www.google.com/maps/place/45%C2%B002'28.0%22N+39%C2%B001'30.5%22E/@45.041098,39.0225621,17z/data=!3m1!4b1!4m4!3m3!8m2!3d45.041098!4d39.025137"
 	><img src="map icon here"></a>
 
@@ -84,13 +84,13 @@
 	}
 
 	.socials li p{
-		font-size: 10px;
+		font-size: 17px;
 		color: #1a1a1a;
 	}
 
 	.socials li img{
-		width: 15px;
-		height: 15px;
+		width: 17px;
+		height: 17px;
 	}
 
 	form{

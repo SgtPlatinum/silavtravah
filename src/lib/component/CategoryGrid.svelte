@@ -2,87 +2,54 @@
 
 export let categories: { name: string, tag: string }[] = [
   {
-    name: "first",
+    name: "Бесплодие",
     tag:  "first0",
   }, {
-    name: "first",
+    name: "Женские заболевания",
     tag:  "first1",
   }, {
-    name: "first",
+    name: "Мужские заболевания",
     tag:  "first2",
   }, {
-    name: "first",
+    name: "Рак (онкология)",
     tag:  "first3",
   }, {
-    name: "first",
+    name: "Схемы Лебедева Е. Г.",
     tag:  "first4",
   }, {
-    name: "first",
+    name: "Красота",
     tag:  "first5",
   }, {
-    name: "first",
+    name: "Болезни суставов",
     tag:  "first6",
   }, {
-    name: "first",
+    name: "Болезни желудочно-кишечного тракта",
     tag:  "first7",
   }, {
-    name: "first",
+    name: "Болезни сердечно-сосудистой системы",
     tag:  "first8",
   }, {
-    name: "first",
+    name: "Алкоголизм",
     tag:  "first9",
   }, {
-    name: "first",
+    name: "Табакокурение",
     tag:  "first10",
   }, {
-    name: "first",
+    name: "Настойки и соки из трав",
     tag:  "first11",
   }, {
-    name: "first",
+    name: "Травы, цветы, семена",
     tag:  "first12",
   }, {
-    name: "first",
+    name: "Сборы",
     tag:  "first13",
   }, {
-    name: "first",
+    name: "Травяные чаи",
     tag:  "first14",
-  }, {
-    name: "first",
-    tag:  "first15",
-  }, {
-    name: "first",
-    tag:  "first16",
-  }, {
-    name: "first",
-    tag:  "first17",
-  }, {
-    name: "first",
-    tag:  "first18",
-  }, {
-    name: "first",
-    tag:  "first19",
   },
 ]
 
 </script>
-
-<!-- TODO: list of the categories:
-	Бесплодие
-•	Женские заболевания
-•	Мужские заболевания
-•	Рак (онкология)
-•	Схемы Лебедева Е. Г.
-•	Красота
-•	Болезни суставов
-•	Болезни желудочно-кишечного тракта
-•	Болезни сердечно-сосудистой системы
-•	Алкоголизм
-•	Табакокурение
-•	Настойки и соки из трав
-•	Травы, цветы, семена
-•	Сборы
-•	Травяные чаи
--->
 
 <div>
   {#each categories as category (category.tag)}
@@ -101,6 +68,7 @@ div {
 
 a {
   @apply block text-stone-700 font-bold text-base;
+    font-size: 10px;
   text-decoration: inherit;
   cursor: inherit;
 }
@@ -111,10 +79,10 @@ article {
   &:hover {
     @apply shadow-inner bg-slate-200;
   }
-
 }
 
 span {
-  @apply uppercase;
+    color: #1a1a1a;
+  @apply uppercase text-center;
 }
 </style>
